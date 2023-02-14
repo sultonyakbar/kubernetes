@@ -439,30 +439,16 @@ Jika semua worker sudah Join, langkah terakhir adalah menginstall CNI Kubernetes
 `kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/calico.yaml`
 
 
+To start using your cluster, you need to run the following as a regular user:
+
+
 Finish, sekarang bisa check status node master/worker
+ ` master-01~$ mkdir -p $HOME/.kube` 
+ ` master-01~$ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config` 
+ ` master-01~$ sudo chown $(id -u):$(id -g) $HOME/.kube/config` 
 ` kubectl get nodes`
 
-### Command containerd
-* `crictl -r unix:///run/containerd/containerd.sock images` (penganti command `docker images`)
-* `crictl -r unix:///run/containerd/containerd.sock ps` (penganti command `docker ps`)
-* etc ..
 
-Jikalau tidak mau pakai args -r unix://CRI-sock, kita bisa membuat file ini : 
-```
-cat > /etc/crictl.yaml <<EOF
-runtime-endpoint: unix:///run/containerd/containerd.sock
-image-endpoint: unix:///run/containerd/containerd.sock
-timeout: 10
-debug: false
-EOF
-
-```
-
-* `crictl images`
-* `crictl ps`
-* etc
-
-./EoF
 
 
 
