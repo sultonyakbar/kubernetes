@@ -443,9 +443,13 @@ To start using your cluster, you need to run the following as a regular user:
 
 
 Finish, sekarang bisa check status node master/worker
+
  ` master-01~$ mkdir -p $HOME/.kube` 
+ 
  ` master-01~$ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config` 
+ 
  ` master-01~$ sudo chown $(id -u):$(id -g) $HOME/.kube/config` 
+ 
 ` kubectl get nodes`
 
 
