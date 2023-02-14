@@ -450,7 +450,7 @@ Finish, sekarang bisa check status node master/worker
  
  ` master-01~$ sudo chown $(id -u):$(id -g) $HOME/.kube/config` 
  
-` kubectl get nodes`
+` master-01~$ kubectl get nodes`
 
 
 
